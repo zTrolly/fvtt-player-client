@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: no nodejs in preload
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 import {contextBridge, ipcRenderer} from 'electron';
 
 window.addEventListener("DOMContentLoaded", () => {

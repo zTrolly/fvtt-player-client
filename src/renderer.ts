@@ -183,7 +183,7 @@ async function createGameList() {
     let config: AppConfig;
     try {
         config = await window.api.appConfig();
-    } catch (e) {
+    } catch (_e) {
         console.log("Failed to load config.json");
     }
 

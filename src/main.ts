@@ -20,7 +20,7 @@ function getUserData(): UserData {
     try {
         const json = fs.readFileSync(path.join(app.getPath("userData"), "userData.json")).toString();
         return JSON.parse(json);
-    } catch (e) {
+    } catch (_e) {
         return {};
     }
 }
@@ -239,7 +239,7 @@ function getAppConfig(): AppConfig {
             app.commandLine.appendSwitch("ignore-certificate-errors");
         }
         return appConfig;
-    } catch (e) {
+    } catch (_e) {
         return {} as AppConfig;
     }
 }
@@ -254,7 +254,7 @@ ipcMain.handle("local-app-config", () => {
     try {
         const userData = getUserData();
         return userData.app ?? {} as AppConfig;
-    } catch (e) {
+    } catch (_e) {
         return {} as AppConfig;
     }
 });
@@ -313,4 +313,3 @@ function saveUserData(gameId: GameId, data: GameUserData) {
     const newData: UserData = {...currentData, [gameId]: data};
     fs.writeFileSync(path.join(app.getPath("userData"), "userData.json"), JSON.stringify(newData));
 }
-
